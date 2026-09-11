@@ -1,5 +1,6 @@
 name: Deploy to Vercel
 
+# Triggers deployment to Vercel on develop branch updates
 on:
   push:
     branches: [develop]
