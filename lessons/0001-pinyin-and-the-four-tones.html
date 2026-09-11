@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: Pinyin & The Four Tones</title>
+  <link rel="stylesheet" href="../assets/lesson-styles.css">
+  <style>
+    .tone-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .tone-card {
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      border: 2px solid var(--border);
+    }
+
+    .tone-card.high { background: #fff3e0; border-color: var(--warning); }
+    .tone-card.rising { background: #e8f5e9; border-color: var(--success); }
+    .tone-card.low { background: #fff3f0; border-color: var(--primary); }
+    .tone-card.falling { background: #e3f2fd; border-color: var(--secondary); }
+
+    .tone-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .tone-example {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+      font-family: 'SimSun', serif;
+    }
+
+    .tone-description {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .pinyin-intro {
+      background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+      border-left: 4px solid var(--secondary);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .pronunciation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .pronunciation-item {
+      background: var(--bg-light);
+      padding: 1rem;
+      border-radius: 4px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    .pronunciation-pinyin {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .pronunciation-sound {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="lesson-meta">
+    <span>⏱️ Lesson Duration: 20 minutes</span>
+    <span>📊 Difficulty: Foundational</span>
+    <span>✅ Prerequisite: None</span>
+  </div>
+
+  <h1>Lesson 1: Pinyin & The Four Tones</h1>
+
+  <p><strong>Welcome to your HSK1 journey!</strong> This lesson covers the absolute foundation of Mandarin Chinese: <em>pinyin</em> (拼音) and the four tones. Without mastering this, everything else will be difficult. The good news? You've got this—tones become natural with practice.</p>
+
+  <!-- Section 1: What is Pinyin? -->
+  <h2>What is Pinyin?</h2>
+
+  <p>Pinyin (拼音) literally means "spelled sound." It's the Romanization system used to write Chinese using the Latin alphabet. Here's why it matters:</p>
+
+  <div class="pinyin-intro">
+    <strong>Why Pinyin Matters for HSK1:</strong>
+    <ul>
+      <li>It shows you how to <strong>pronounce</strong> Chinese characters correctly</li>
+      <li>You'll use it to <strong>type Chinese</strong> on computers and phones</li>
+      <li>It's your bridge from English phonetics to Chinese sounds</li>
+      <li>HSK1 exams include pinyin recognition and writing</li>
+    </ul>
+  </div>
+
+  <p>For example, the Chinese character 妈 (mother) is written in pinyin as <span class="pinyin">mā</span>. The small mark above the "a" is a <strong>tone mark</strong>—we'll explore these next.</p>
+
+  <!-- Section 2: The Four Tones -->
+  <h2>The Four Tones of Mandarin Chinese</h2>
+
+  <p>This is the critical part: <strong>Mandarin Chinese is a tonal language.</strong> The same syllable pronounced with different tones means completely different things. For instance, the sound "ma" has four distinct meanings:</p>
+
+  <div class="tone-demo">
+    <div class="tone-card high">
+      <div class="tone-name">1st Tone: High Flat (—)</div>
+      <div class="tone-example">妈 (mā)</div>
+      <div class="tone-description">Mother</div>
+      <div class="audio-box" style="margin-top: 1rem; background: white; border: 1px solid var(--border); padding: 0.5rem;">
+        <span style="font-size: 0.85rem;">📢 High, steady voice</span>
+      </div>
+    </div>
+
+    <div class="tone-card rising">
+      <div class="tone-name">2nd Tone: Rising (/)</div>
+      <div class="tone-example">麻 (má)</div>
+      <div class="tone-description">Hemp / Numb</div>
+      <div class="audio-box" style="margin-top: 1rem; background: white; border: 1px solid var(--border); padding: 0.5rem;">
+        <span style="font-size: 0.85rem;">📢 Rising, like asking a question</span>
+      </div>
+    </div>
+
+    <div class="tone-card low">
+      <div class="tone-name">3rd Tone: Low Dip (∨)</div>
+      <div class="tone-example">马 (mǎ)</div>
+      <div class="tone-description">Horse</div>
+      <div class="audio-box" style="margin-top: 1rem; background: white; border: 1px solid var(--border); padding: 0.5rem;">
+        <span style="font-size: 0.85rem;">📢 Dip down, then slightly up</span>
+      </div>
+    </div>
+
+    <div class="tone-card falling">
+      <div class="tone-name">4th Tone: Falling (\)</div>
+      <div class="tone-example">骂 (mà)</div>
+      <div class="tone-description">To scold / Curse</div>
+      <div class="audio-box" style="margin-top: 1rem; background: white; border: 1px solid var(--border); padding: 0.5rem;">
+        <span style="font-size: 0.85rem;">📢 Falling, emphatic</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <h4>🎯 Key Insight: Tones Are Not Optional</h4>
+    <p>In English, we use tone of voice to convey emotion ("I <em>love</em> this!" vs. "I love this?"). In Mandarin, tone changes the actual word. Getting the tone wrong is like saying the wrong word entirely. Native speakers notice immediately.</p>
+  </div>
+
+  <!-- Section 3: How to Read Tone Marks -->
+  <h2>Reading Tone Marks in Pinyin</h2>
+
+  <p>Tone marks appear above the main vowel in a syllable. Here are the patterns:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tone</th>
+        <th>Mark</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1st</strong></td>
+        <td>ā ē ī ō ū ü</td>
+        <td>Flat line over vowel</td>
+        <td>mā (妈 - mother)</td>
+      </tr>
+      <tr>
+        <td><strong>2nd</strong></td>
+        <td>á é í ó ú ǘ</td>
+        <td>Diagonal line rising right</td>
+        <td>má (麻 - hemp)</td>
+      </tr>
+      <tr>
+        <td><strong>3rd</strong></td>
+        <td>ǎ ě ǐ ǒ ǔ ǚ</td>
+        <td>Checkmark (dip down)</td>
+        <td>mǎ (马 - horse)</td>
+      </tr>
+      <tr>
+        <td><strong>4th</strong></td>
+        <td>à è ì ò ù ǜ</td>
+        <td>Diagonal line falling left</td>
+        <td>mà (骂 - to scold)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="example">
+    <div class="example-title">💡 Pro Tip: Which Vowel Gets the Mark?</div>
+    <p>When a syllable has multiple vowels, follow this rule:</p>
+    <ol>
+      <li>If there's an "a" or "e", it gets the mark</li>
+      <li>If there's "ou", the "o" gets the mark</li>
+      <li>Otherwise, the mark goes on the last vowel</li>
+    </ol>
+    <p><strong>Example:</strong> In "nǐ" (你 - you), the mark is on "i" because there's no "a" or "e". In "hǎo" (好 - good), the mark is on "a".</p>
+  </div>
+
+  <!-- Section 4: Basic Pinyin Sounds -->
+  <h2>Basic Pinyin Initials & Finals</h2>
+
+  <p>Pinyin is built from two parts: an <strong>initial</strong> (the consonant at the start) and a <strong>final</strong> (the vowel sound). Here are some core ones you'll see in HSK1:</p>
+
+  <h3>Common Initials</h3>
+  <div class="pronunciation-grid">
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">b</div>
+      <div class="pronunciation-sound">like "b" in "bat"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">p</div>
+      <div class="pronunciation-sound">like "p" in "park"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">m</div>
+      <div class="pronunciation-sound">like "m" in "mom"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">n</div>
+      <div class="pronunciation-sound">like "n" in "no"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">h</div>
+      <div class="pronunciation-sound">like "h" in "hello"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">f</div>
+      <div class="pronunciation-sound">like "f" in "fun"</div>
+    </div>
+  </div>
+
+  <h3>Common Finals</h3>
+  <div class="pronunciation-grid">
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">a</div>
+      <div class="pronunciation-sound">like "a" in "father"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">e</div>
+      <div class="pronunciation-sound">like "e" in "bed"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">i</div>
+      <div class="pronunciation-sound">like "ee" in "seed"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">o</div>
+      <div class="pronunciation-sound">like "o" in "go"</div>
+    </div>
+    <div class="pronunciation-item">
+      <div class="pronunciation-pinyin">u</div>
+      <div class="pronunciation-sound">like "oo" in "moon"</div>
+    </div>
+  </div>
+
+  <!-- Section 5: Practice -->
+  <h2>Practice: Identifying Tones</h2>
+
+  <div class="practice">
+    <h3>Exercise: Match the Pinyin to the Tone</h3>
+    <p>For each pinyin below, identify which tone it represents (1st, 2nd, 3rd, or 4th):</p>
+
+    <div class="quiz-question">
+      <strong>1. nǐ (你 - you)</strong>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">1st Tone</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">2nd Tone</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">3rd Tone ✓</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">4th Tone</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <strong>2. hǎo (好 - good)</strong>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">1st Tone</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">2nd Tone</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">3rd Tone ✓</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">4th Tone</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <strong>3. duō (多 - many)</strong>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">1st Tone ✓</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">2nd Tone</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">3rd Tone</div>
+        <div class="quiz-option" onclick="this.classList.toggle('correct')">4th Tone</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;"><em>Tip: Click an option to reveal if it's correct</em></p>
+  </div>
+
+  <!-- Section 6: Key Takeaway -->
+  <div class="takeaway">
+    <h4>📝 What You've Learned</h4>
+    <ul>
+      <li><strong>Pinyin</strong> is the Roman alphabet system for writing Chinese sounds</li>
+      <li>Mandarin has <strong>four tones</strong>, each marked differently in pinyin</li>
+      <li><strong>Tone marks</strong> always go on the main vowel, following specific rules</li>
+      <li><strong>Tones matter</strong>—wrong tone = wrong word</li>
+      <li>Each tone has a characteristic pitch shape (high, rising, dipping, falling)</li>
+    </ul>
+  </div>
+
+  <!-- Next Steps -->
+  <h2>Practice & Next Steps</h2>
+
+  <p><strong>Before moving to the next lesson, spend 5-10 minutes on these activities:</strong></p>
+
+  <ol>
+    <li><strong>Listen & Repeat:</strong> Go to <a href="https://www.mandarin.com/beginner/tones" target="_blank">mandarin.com/beginner/tones</a> and listen to the four tones repeatedly. Repeat out loud—this trains your ear.</li>
+    <li><strong>Write It Out:</strong> On paper, write the pinyin for: 妈、麻、马、骂 (the "ma" family). Say each one aloud.</li>
+    <li><strong>Tone Counting Game:</strong> Every time you see pinyin this week, quickly identify the tone number before reading it.</li>
+  </ol>
+
+  <p><strong>Feel free to ask me questions!</strong> Is the tone concept unclear? Do you want to hear more examples? That's what I'm here for—no question is too basic right now.</p>
+
+  <div class="source">
+    <strong>📚 Primary Source:</strong> <a href="https://chineselessons.com/" target="_blank">New Practical Chinese Reader (NPCR)</a> — The gold standard textbook for beginners. Recommended by universities worldwide. This lesson draws heavily from its Lesson 1 foundations.
+  </div>
+
+  <div class="nav-links">
+    <a href="#" class="nav-prev">← Previous</a>
+    <a href="./0002-basic-greetings.html" class="nav-next">Next: Basic Greetings →</a>
+  </div>
+
+</body>
+</html>

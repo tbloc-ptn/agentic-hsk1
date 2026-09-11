@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: Tone 1 (High Flat) Deep Dive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .day-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 20px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .box.highlight {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+
+        .chinese-large {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Microsoft YaHei', 'Heiti SC', sans-serif;
+        }
+
+        .pinyin {
+            color: #764ba2;
+            font-style: italic;
+        }
+
+        .pronunciation {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #667eea;
+        }
+
+        .example-box .example-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        .learning-objectives {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .learning-objectives h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 10px 0;
+        }
+
+        .practice {
+            background: #f0fff4;
+            border: 2px solid #28a745;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .practice h3 {
+            color: #28a745;
+            margin-top: 0;
+        }
+
+        .homework {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .homework h3 {
+            color: #ff6b00;
+            margin-top: 0;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+
+        .nav-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #764ba2;
+        }
+
+        .emoji {
+            margin-right: 8px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tone-visual {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 5px;
+            height: 150px;
+            margin: 20px 0;
+            background: #f8f9ff;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .tone-bar {
+            width: 40px;
+            background: #667eea;
+            border-radius: 3px 3px 0 0;
+            transition: height 0.3s;
+        }
+
+        .progress-bar {
+            background: #ddd;
+            border-radius: 10px;
+            height: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #667eea;
+            height: 100%;
+            width: 33%;
+        }
+
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .vocab-card {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 5px;
+            border: 2px solid #667eea;
+        }
+
+        .vocab-card .character {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+            font-family: 'Microsoft YaHei', 'Heiti SC', sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .vocab-card .pinyin {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .vocab-card .english {
+            color: #555;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-badge">📅 Day 2 of 30</div>
+            <h1>Tone 1: High Flat</h1>
+            <p>Master the first tone - stable, high, and unwavering</p>
+        </div>
+
+        <div class="content">
+            <!-- Learning Objectives -->
+            <div class="learning-objectives">
+                <h3>✨ Today's Objectives</h3>
+                <ul>
+                    <li>Master Tone 1 pronunciation (high and flat)</li>
+                    <li>Recognize Tone 1 by sound</li>
+                    <li>Identify tone marks for Tone 1</li>
+                    <li>Practice 10+ Tone 1 words naturally</li>
+                </ul>
+            </div>
+
+            <!-- What is Tone 1 -->
+            <div class="section">
+                <h2>Tone 1: High Flat (¯)</h2>
+
+                <div class="box highlight">
+                    <strong>Key Characteristics:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Pitch: HIGH and STAYS HIGH</li>
+                        <li>Visual: ─── (straight line)</li>
+                        <li>Symbol: <span class="pinyin">ā ē ī ō ū</span></li>
+                        <li>Feeling: Like a siren that doesn't change pitch</li>
+                    </ul>
+                </div>
+
+                <h3>Understanding Tone 1 Visually</h3>
+                <p>Imagine your voice pitch as a graph. Tone 1 looks like this:</p>
+                <div class="tone-visual">
+                    <div class="tone-bar" style="height: 100%;"></div>
+                    <div class="tone-bar" style="height: 100%;"></div>
+                    <div class="tone-bar" style="height: 100%;"></div>
+                    <div class="tone-bar" style="height: 100%;"></div>
+                    <div class="tone-bar" style="height: 100%;"></div>
+                </div>
+                <p style="text-align: center; color: #555;"><strong>Perfectly flat and high!</strong></p>
+
+                <h3>How to Produce Tone 1</h3>
+                <div class="box">
+                    <ol>
+                        <li><strong>Find your high pitch:</strong> Say "oooooh" at a naturally high pitch (not strained)</li>
+                        <li><strong>Keep it flat:</strong> Make sure it doesn't go up or down</li>
+                        <li><strong>Release and relax:</strong> Let your voice naturally fall when you're done</li>
+                        <li><strong>Practice repeatedly:</strong> Say it 10+ times until it feels natural</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Common Tone 1 Words -->
+            <div class="section">
+                <h2>10 Common Tone 1 Words</h2>
+                <p>These are everyday words you'll use constantly. Memorize the pinyin AND pronunciation:</p>
+
+                <div class="vocabulary-grid">
+                    <div class="vocab-card">
+                        <div class="character">妈</div>
+                        <div class="pinyin"><span class="pronunciation">mā</span></div>
+                        <div class="english">Mother</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">爸</div>
+                        <div class="pinyin"><span class="pronunciation">bà</span></div>
+                        <div class="english">Father</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">他</div>
+                        <div class="pinyin"><span class="pronunciation">tā</span></div>
+                        <div class="english">He</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">她</div>
+                        <div class="pinyin"><span class="pronunciation">tā</span></div>
+                        <div class="english">She</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">我</div>
+                        <div class="pinyin"><span class="pronunciation">wǒ</span></div>
+                        <div class="english">I</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">你</div>
+                        <div class="pinyin"><span class="pronunciation">nǐ</span></div>
+                        <div class="english">You</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">三</div>
+                        <div class="pinyin"><span class="pronunciation">sān</span></div>
+                        <div class="english">Three</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">一</div>
+                        <div class="pinyin"><span class="pronunciation">yī</span></div>
+                        <div class="english">One</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">七</div>
+                        <div class="pinyin"><span class="pronunciation">qī</span></div>
+                        <div class="english">Seven</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="character">八</div>
+                        <div class="pinyin"><span class="pronunciation">bā</span></div>
+                        <div class="english">Eight</div>
+                    </div>
+                </div>
+
+                <h3>Notice the Pattern</h3>
+                <div class="box">
+                    All of these words have the tone mark on the vowel: <strong>ā, ē, ī, ō, ū</strong>
+                    <br/><br/>
+                    The tone mark shows you: <strong>"Pronounce this vowel HIGH and KEEP IT HIGH"</strong>
+                </div>
+            </div>
+
+            <!-- Practice Exercises -->
+            <div class="section">
+                <h2>Practice Exercises</h2>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎯</span>Exercise 1: Recognition Practice</h3>
+                    <p><strong>Listen and identify:</strong> Which of these are Tone 1? (In real practice, you'd listen to audio)</p>
+                    <ul>
+                        <li>Sound A: High, steady → <strong>✓ Tone 1</strong></li>
+                        <li>Sound B: Rising up → ✗ Tone 2</li>
+                        <li>Sound C: High, steady → <strong>✓ Tone 1</strong></li>
+                        <li>Sound D: Going down → ✗ Tone 4</li>
+                        <li>Sound E: High, steady → <strong>✓ Tone 1</strong></li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>Goal: 5/5 correct</em></p>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎤</span>Exercise 2: Pronunciation Practice</h3>
+                    <p><strong>Repeat each word 5 times, focusing on keeping your pitch HIGH and FLAT:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Word</th>
+                                <th>Pinyin</th>
+                                <th>Meaning</th>
+                                <th>Checked</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>妈</td>
+                                <td class="pinyin">mā</td>
+                                <td>Mother</td>
+                                <td>□</td>
+                            </tr>
+                            <tr>
+                                <td>他</td>
+                                <td class="pinyin">tā</td>
+                                <td>He</td>
+                                <td>□</td>
+                            </tr>
+                            <tr>
+                                <td>三</td>
+                                <td class="pinyin">sān</td>
+                                <td>Three</td>
+                                <td>□</td>
+                            </tr>
+                            <tr>
+                                <td>一</td>
+                                <td class="pinyin">yī</td>
+                                <td>One</td>
+                                <td>□</td>
+                            </tr>
+                            <tr>
+                                <td>七</td>
+                                <td class="pinyin">qī</td>
+                                <td>Seven</td>
+                                <td>□</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">✏️</span>Exercise 3: Recording & Comparison</h3>
+                    <p><strong>Record yourself:</strong></p>
+                    <ol>
+                        <li>Record yourself saying: "mā mā mā" (keep it high and flat)</li>
+                        <li>Play it back</li>
+                        <li>Listen to a native speaker saying the same word</li>
+                        <li>Compare: Is your pitch the same? Is it flat?</li>
+                        <li>Repeat 3-5 times until you match the native speaker</li>
+                    </ol>
+                    <p style="margin-top: 10px;"><strong>This is the most important exercise!</strong> Your ear learns by comparing.</p>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🔄</span>Exercise 4: Speed Drilling</h3>
+                    <p><strong>Say these syllables as fast as you can while keeping the tone correct:</strong></p>
+                    <p style="font-size: 1.2em; text-align: center; margin: 15px 0;">
+                        <span class="pinyin">mā tā nā pā lā sā hā</span>
+                    </p>
+                    <ul>
+                        <li>Goal 1: Complete in 10 seconds (slow)</li>
+                        <li>Goal 2: Complete in 5 seconds (medium)</li>
+                        <li>Goal 3: Complete in 3 seconds (fast, like a native)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Comparison with Other Tones -->
+            <div class="section">
+                <h2>Tone 1 vs. All Tones</h2>
+                <p>Now that you understand Tone 1, here's how it compares to the other tones:</p>
+
+                <div class="box">
+                    <p><strong>Tone 1 (High):</strong> <span class="pinyin">mā</span> - stays high, never changes</p>
+                    <p><strong>Tone 2 (Rising):</strong> <span class="pinyin">má</span> - goes UP (opposite of 1)</p>
+                    <p><strong>Tone 3 (Dipping):</strong> <span class="pinyin">mǎ</span> - goes DOWN then UP</p>
+                    <p><strong>Tone 4 (Falling):</strong> <span class="pinyin">mà</span> - goes DOWN quickly</p>
+                </div>
+
+                <p style="margin-top: 20px;">The key difference:</p>
+                <ul>
+                    <li>Tone 1 is the <strong>most stable</strong> - it doesn't move</li>
+                    <li>All other tones <strong>move</strong> - that's what makes them different</li>
+                    <li>Once you master Tone 1, the others become clearer!</li>
+                </ul>
+            </div>
+
+            <!-- Homework -->
+            <div class="section">
+                <div class="homework">
+                    <h3><span class="emoji">📝</span>Day 2 Homework</h3>
+                    <ul>
+                        <li>✅ Practice: Say "mā" 50 times (focusing on high pitch)</li>
+                        <li>✅ Listen: Mandarin.com Tone 1 exercises (10 min)</li>
+                        <li>✅ Record: Record yourself saying the 10 Tone 1 words (5 min)</li>
+                        <li>✅ Compare: Compare your recording to a native speaker (5 min)</li>
+                        <li>✅ Anki: Review Day 1 cards + add 15 new Tone 1 cards (10 min)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Total Time:</strong> 35-40 minutes</p>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="section">
+                <h2>Your Progress</h2>
+                <p>You've now learned:</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 33%;"></div>
+                </div>
+                <p style="text-align: center; margin-top: 10px;"><strong>Tone 1 out of 4 tones completed! (33%)</strong></p>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navigation">
+                <a href="DAY-01-Pinyin-Introduction.html" class="nav-button">← Previous: Day 1</a>
+                <a href="DAY-03-Tone-2-Deep-Dive.html" class="nav-button">Next: Day 3 →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

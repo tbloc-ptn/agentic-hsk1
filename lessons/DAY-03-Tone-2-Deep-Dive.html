@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: Tone 2 (Rising) Deep Dive</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; line-height: 1.6; min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header .day-badge { display: inline-block; background: rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; font-size: 1.1em; margin-bottom: 10px; }
+        .content { padding: 40px 30px; }
+        .section { margin-bottom: 40px; }
+        h2 { color: #667eea; font-size: 1.8em; margin-bottom: 20px; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        h3 { color: #764ba2; font-size: 1.3em; margin: 20px 0 15px 0; }
+        p { margin-bottom: 15px; color: #555; }
+        .box { background: #f8f9ff; border-left: 4px solid #667eea; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .box.highlight { background: #fff3cd; border-left-color: #ffc107; }
+        .chinese-large { font-size: 2em; font-weight: bold; color: #667eea; text-align: center; padding: 20px; background: #f8f9ff; border-radius: 5px; margin: 15px 0; font-family: 'Microsoft YaHei', 'Heiti SC', sans-serif; }
+        .pinyin { color: #764ba2; font-style: italic; }
+        .pronunciation { color: #28a745; font-weight: bold; }
+        .learning-objectives { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 5px; margin-bottom: 30px; }
+        .learning-objectives h3 { color: white; margin-top: 0; }
+        .learning-objectives ul { margin-left: 20px; }
+        .learning-objectives li { margin: 10px 0; }
+        .practice { background: #f0fff4; border: 2px solid #28a745; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .practice h3 { color: #28a745; margin-top: 0; }
+        .homework { background: #fff3cd; border: 2px solid #ffc107; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .homework h3 { color: #ff6b00; margin-top: 0; }
+        .navigation { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; }
+        .nav-button { background: #667eea; color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; cursor: pointer; transition: background 0.3s; }
+        .nav-button:hover { background: #764ba2; }
+        .emoji { margin-right: 8px; }
+        ul, ol { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #667eea; color: white; padding: 12px; text-align: left; font-weight: bold; }
+        td { padding: 12px; border-bottom: 1px solid #ddd; }
+        tr:hover { background: #f8f9ff; }
+        .tone-visual { display: flex; align-items: flex-end; justify-content: center; gap: 5px; height: 150px; margin: 20px 0; background: #f8f9ff; border-radius: 5px; padding: 20px; }
+        .tone-bar { width: 40px; background: #667eea; border-radius: 3px 3px 0 0; }
+        .progress-bar { background: #ddd; border-radius: 10px; height: 8px; margin: 15px 0; overflow: hidden; }
+        .progress-fill { background: #667eea; height: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-badge">📅 Day 3 of 30</div>
+            <h1>Tone 2: Rising</h1>
+            <p>Master the second tone - like asking a question</p>
+        </div>
+
+        <div class="content">
+            <div class="learning-objectives">
+                <h3>✨ Today's Objectives</h3>
+                <ul>
+                    <li>Master Tone 2 pronunciation (rising from middle to high)</li>
+                    <li>Recognize Tone 2 by sound - it sounds like asking a question</li>
+                    <li>Understand the difference between Tone 1 and Tone 2</li>
+                    <li>Practice 10+ Tone 2 words naturally</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Tone 2: Rising (´)</h2>
+
+                <div class="box highlight">
+                    <strong>Key Characteristics:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Pitch: Starts MIDDLE, goes UP</li>
+                        <li>Visual: ╱ (going up)</li>
+                        <li>Symbol: <span class="pinyin">á é í ó ú</span></li>
+                        <li>Feeling: Like asking "What?" in English with rising intonation</li>
+                        <li>Tone Mark: Accent mark (´) over the vowel</li>
+                    </ul>
+                </div>
+
+                <h3>Understanding Tone 2 Visually</h3>
+                <p>Imagine your voice pitch as a graph. Tone 2 looks like this:</p>
+                <div class="tone-visual">
+                    <div class="tone-bar" style="height: 40%;"></div>
+                    <div class="tone-bar" style="height: 60%;"></div>
+                    <div class="tone-bar" style="height: 80%;"></div>
+                    <div class="tone-bar" style="height: 95%;"></div>
+                </div>
+                <p style="text-align: center; color: #555;"><strong>Starts low-middle, rises to high!</strong></p>
+
+                <h3>How to Produce Tone 2</h3>
+                <div class="box">
+                    <ol>
+                        <li><strong>Start at middle pitch:</strong> Say a comfortable middle note (not too high, not too low)</li>
+                        <li><strong>Slide UP:</strong> As you say the vowel, gradually go up in pitch</li>
+                        <li><strong>End HIGH:</strong> Finish at a naturally high pitch</li>
+                        <li><strong>Sound like you're asking:</strong> "What?" "Really?" should feel similar</li>
+                        <li><strong>Practice repeatedly:</strong> Say it 10+ times until it feels natural</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Tone 1 vs. Tone 2 Comparison</h2>
+                <p>This is CRITICAL because many beginners confuse these two:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Tone 1 (High)</th>
+                            <th>Tone 2 (Rising)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pitch Pattern</strong></td>
+                            <td>High and FLAT (doesn't change)</td>
+                            <td>Starts middle, RISES to high</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Visual</strong></td>
+                            <td>─── (horizontal line)</td>
+                            <td>╱ (diagonal line going up)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tone Mark</strong></td>
+                            <td>¯ (macron / bar)</td>
+                            <td>´ (accent / acute)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Example</strong></td>
+                            <td><span class="pinyin">mā</span> (mother) - stable</td>
+                            <td><span class="pinyin">má</span> (hemp) - questioning</td>
+                        </tr>
+                        <tr>
+                            <td><strong>English Feeling</strong></td>
+                            <td>Making a statement "Hello."</td>
+                            <td>Asking a question "Hello?"</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="box important" style="background: #ffe0e0; border-left-color: #dc3545;">
+                    <strong>⚠️ Common Mistake:</strong> Beginners often make Tone 1 too high or make Tone 2 too flat. Remember: Tone 1 is FLAT (no movement), Tone 2 MOVES (rises)!
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>10 Common Tone 2 Words</h2>
+                <p>Practice these everyday words:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Character</th>
+                            <th>Pinyin</th>
+                            <th>English</th>
+                            <th>Checked</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">麻</td>
+                            <td><span class="pinyin">má</span></td>
+                            <td>Hemp/Numb</td>
+                            <td>□</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">来</td>
+                            <td><span class="pinyin">lái</span></td>
+                            <td>Come</td>
+                            <td>□</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">二</td>
+                            <td><span class="pinyin">èr</span></td>
+                            <td>Two</td>
+                            <td>□</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">开</td>
+                            <td><span class="pinyin">kāi</span></td>
+                            <td>Open</td>
+                            <td>□</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">男</td>
+                            <td><span class="pinyin">nán</span></td>
+                            <td>Male</td>
+                            <td>□</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Practice Exercises</h2>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎯</span>Exercise 1: Tone 1 vs. Tone 2 Recognition</h3>
+                    <p>Which tone is it? (Tone 1 is flat, Tone 2 rises)</p>
+                    <ul>
+                        <li>Sound A: High and flat → <strong>Tone 1</strong></li>
+                        <li>Sound B: Starts middle, rises up → <strong>Tone 2</strong></li>
+                        <li>Sound C: High and flat → <strong>Tone 1</strong></li>
+                        <li>Sound D: Starts middle, rises up → <strong>Tone 2</strong></li>
+                    </ul>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎤</span>Exercise 2: Tone 2 Pronunciation</h3>
+                    <p><strong>Repeat each word 5 times, rising from middle to high:</strong></p>
+                    <ul>
+                        <li><span class="pinyin">má</span> - Rise up like you're asking "What?"</li>
+                        <li><span class="pinyin">lái</span> - Same rising motion</li>
+                        <li><span class="pinyin">èr</span> - Middle to high</li>
+                        <li><span class="pinyin">kāi</span> - Wait, this might be Tone 1! (it is)</li>
+                    </ul>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🔄</span>Exercise 3: Side-by-Side Comparison</h3>
+                    <p>Say these pairs and hear the DIFFERENCE:</p>
+                    <ol>
+                        <li><span class="pinyin">mā</span> (flat) vs. <span class="pinyin">má</span> (rising)</li>
+                        <li><span class="pinyin">tā</span> (flat) vs. <span class="pinyin">tá</span> (rising)</li>
+                        <li><span class="pinyin">nā</span> (flat) vs. <span class="pinyin">ná</span> (rising)</li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Goal:</strong> Clear difference between the two tones</p>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">📝</span>Exercise 4: Recording Practice</h3>
+                    <p>Record yourself saying:</p>
+                    <ol>
+                        <li>Say Tone 1 and Tone 2 pairs: "mā má, tā tá, nā ná"</li>
+                        <li>Record and listen back</li>
+                        <li>Compare to native speaker</li>
+                        <li>Are they clearly different?</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="homework">
+                    <h3><span class="emoji">📝</span>Day 3 Homework</h3>
+                    <ul>
+                        <li>✅ Listen: Mandarin.com Tone 2 exercises (10 min)</li>
+                        <li>✅ Practice: Say Tone 2 words 30 times (5 min)</li>
+                        <li>✅ Comparison: Say Tone 1 vs. Tone 2 pairs 20 times (5 min)</li>
+                        <li>✅ Record: Record yourself saying 10 Tone 2 words (5 min)</li>
+                        <li>✅ Anki: Review Days 1-2 cards + add 15 new Tone 2 cards (10 min)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Total Time:</strong> 35-40 minutes</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Progress Check</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 66%;"></div>
+                </div>
+                <p style="text-align: center; margin-top: 10px;"><strong>Tones 1-2 out of 4 completed! (66%)</strong></p>
+            </div>
+
+            <div class="navigation">
+                <a href="DAY-02-Tone-1-Deep-Dive.html" class="nav-button">← Previous: Day 2</a>
+                <a href="DAY-04-Tone-3-Deep-Dive.html" class="nav-button">Next: Day 4 →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

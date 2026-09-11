@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Tone 3 (Low Dipping) Deep Dive</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; line-height: 1.6; min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header .day-badge { display: inline-block; background: rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; font-size: 1.1em; margin-bottom: 10px; }
+        .content { padding: 40px 30px; }
+        .section { margin-bottom: 40px; }
+        h2 { color: #667eea; font-size: 1.8em; margin-bottom: 20px; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        h3 { color: #764ba2; font-size: 1.3em; margin: 20px 0 15px 0; }
+        p { margin-bottom: 15px; color: #555; }
+        .box { background: #f8f9ff; border-left: 4px solid #667eea; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .box.highlight { background: #fff3cd; border-left-color: #ffc107; }
+        .chinese-large { font-size: 2em; font-weight: bold; color: #667eea; text-align: center; padding: 20px; background: #f8f9ff; border-radius: 5px; margin: 15px 0; font-family: 'Microsoft YaHei', 'Heiti SC', sans-serif; }
+        .pinyin { color: #764ba2; font-style: italic; }
+        .pronunciation { color: #28a745; font-weight: bold; }
+        .learning-objectives { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 5px; margin-bottom: 30px; }
+        .learning-objectives h3 { color: white; margin-top: 0; }
+        .learning-objectives ul { margin-left: 20px; }
+        .learning-objectives li { margin: 10px 0; }
+        .practice { background: #f0fff4; border: 2px solid #28a745; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .practice h3 { color: #28a745; margin-top: 0; }
+        .homework { background: #fff3cd; border: 2px solid #ffc107; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .homework h3 { color: #ff6b00; margin-top: 0; }
+        .navigation { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; }
+        .nav-button { background: #667eea; color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; cursor: pointer; transition: background 0.3s; }
+        .nav-button:hover { background: #764ba2; }
+        .emoji { margin-right: 8px; }
+        ul, ol { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #667eea; color: white; padding: 12px; text-align: left; font-weight: bold; }
+        td { padding: 12px; border-bottom: 1px solid #ddd; }
+        tr:hover { background: #f8f9ff; }
+        .progress-bar { background: #ddd; border-radius: 10px; height: 8px; margin: 15px 0; overflow: hidden; }
+        .progress-fill { background: #667eea; height: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-badge">📅 Day 4 of 30</div>
+            <h1>Tone 3: Low Dipping</h1>
+            <p>Master the third tone - the trickiest but most satisfying tone</p>
+        </div>
+
+        <div class="content">
+            <div class="learning-objectives">
+                <h3>✨ Today's Objectives</h3>
+                <ul>
+                    <li>Understand Tone 3: dip LOW then rise slightly</li>
+                    <li>Recognize Tone 3 by sound (usually the hardest to hear at first)</li>
+                    <li>Understand why Tone 3 feels awkward</li>
+                    <li>Practice 10+ Tone 3 words with proper dipping motion</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Tone 3: Low Dipping (ˇ)</h2>
+
+                <div class="box highlight">
+                    <strong>Key Characteristics:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Pitch: Dips LOW then rises slightly</li>
+                        <li>Visual: ∨ (dipping down)</li>
+                        <li>Symbol: <span class="pinyin">ǎ ě ǐ ǒ ǔ</span></li>
+                        <li>Feeling: Like expressing doubt or uncertainty ("Huh?")</li>
+                        <li>Tone Mark: Caron / háček (ˇ) over the vowel</li>
+                    </ul>
+                </div>
+
+                <div class="box important" style="background: #ffe0e0; border-left-color: #dc3545;">
+                    <strong>⚠️ Warning:</strong> Tone 3 is the HARDEST tone for beginners! It feels unnatural because you have to drop your pitch very low. This is completely normal. Most learners "get it" around Day 15-20.
+                </div>
+
+                <h3>Understanding Tone 3 Visually</h3>
+                <p>Your voice pitch: starts at middle, DROPS LOW, then rises slightly at the end</p>
+                <div class="box">
+                    <p style="font-size: 2em; text-align: center;">
+                        ↘️ DIP LOW ↗️
+                    </p>
+                    <p style="text-align: center; color: #555;">Go down, then slightly up</p>
+                </div>
+
+                <h3>How to Produce Tone 3</h3>
+                <div class="box">
+                    <ol>
+                        <li><strong>Start at middle pitch:</strong> Begin at a comfortable middle level</li>
+                        <li><strong>Drop LOW:</strong> Go as low as you can comfortably (lower than your normal voice)</li>
+                        <li><strong>Pause:</strong> Stay low for a moment</li>
+                        <li><strong>Rise slightly:</strong> Bring it up just a little bit at the end</li>
+                        <li><strong>Exaggerate at first:</strong> Make it VERY obvious until it feels natural</li>
+                    </ol>
+                </div>
+
+                <h3>Why Tone 3 Feels Weird</h3>
+                <p>Tone 3 is unnatural because:</p>
+                <ul>
+                    <li>In English, we rarely dip our pitch that low</li>
+                    <li>It requires more effort than Tones 1, 2, and 4</li>
+                    <li>The "dip low then rise" motion is awkward at first</li>
+                    <li>It often gets confused with Tone 4 (falling) by beginners</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>But here's the good news:</strong> Once you practice it 10+ times, your mouth remembers the motion, and it becomes much easier!</p>
+            </div>
+
+            <div class="section">
+                <h2>Tone 3 Common Words</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Character</th>
+                            <th>Pinyin</th>
+                            <th>English</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">马</td>
+                            <td><span class="pinyin">mǎ</span></td>
+                            <td>Horse</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">你</td>
+                            <td><span class="pinyin">nǐ</span></td>
+                            <td>You</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">我</td>
+                            <td><span class="pinyin">wǒ</span></td>
+                            <td>I</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">五</td>
+                            <td><span class="pinyin">wǔ</span></td>
+                            <td>Five</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">九</td>
+                            <td><span class="pinyin">jiǔ</span></td>
+                            <td>Nine</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Practice Exercises</h2>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎯</span>Exercise 1: Exaggerate Tone 3</h3>
+                    <p><strong>Say these with HUGE dips (exaggerate!):</strong></p>
+                    <ul>
+                        <li><span class="pinyin">mǎ</span> - Drop your voice super low, then rise slightly</li>
+                        <li><span class="pinyin">nǐ</span> - Same motion, make it obvious</li>
+                        <li><span class="pinyin">wǒ</span> - Go very low</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Pro Tip:</strong> Exaggeration is your friend! Once it feels more natural, you can reduce the exaggeration.</p>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🔄</span>Exercise 2: Tone 1, 2, 3 Comparison</h3>
+                    <p>Say these in order and hear all three tones:</p>
+                    <ol>
+                        <li><span class="pinyin">mā</span> (Tone 1 - FLAT, high) → <span class="pinyin">má</span> (Tone 2 - RISING) → <span class="pinyin">mǎ</span> (Tone 3 - DIPPING)</li>
+                        <li><span class="pinyin">tā</span> (Tone 1) → <span class="pinyin">tá</span> (Tone 2) → <span class="pinyin">tǎ</span> (Tone 3)</li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Goal:</strong> Hear the clear difference between all three</p>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">📝</span>Exercise 3: The "Question" Practice</h3>
+                    <p>Tone 3 often sounds like you're asking a confused question. Use this:</p>
+                    <ol>
+                        <li>In English, say "Huh?" with a confused tone (goes low then up)</li>
+                        <li>Now say <span class="pinyin">mǎ?</span> with the same motion</li>
+                        <li>They should feel similar!</li>
+                    </ol>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎤</span>Exercise 4: Recording & Feedback</h3>
+                    <p>Record and compare:</p>
+                    <ol>
+                        <li>Record yourself saying: "mā má mǎ" (Tones 1, 2, 3 in sequence)</li>
+                        <li>Play it back</li>
+                        <li>Listen to native speaker saying the same</li>
+                        <li>Can you hear Tone 3 is different from 1 and 2?</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="homework">
+                    <h3><span class="emoji">📝</span>Day 4 Homework</h3>
+                    <ul>
+                        <li>✅ Listen: Mandarin.com Tone 3 exercises (10 min)</li>
+                        <li>✅ Exaggerate: Say Tone 3 words with huge dips 40 times (8 min)</li>
+                        <li>✅ Compare: Say Tones 1, 2, 3 together 15 times (5 min)</li>
+                        <li>✅ Record: Record yourself saying 10 Tone 3 words (5 min)</li>
+                        <li>✅ Anki: Review Days 1-3 cards + add 15 new Tone 3 cards (12 min)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Total Time:</strong> 40 minutes</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Progress Check</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+                <p style="text-align: center; margin-top: 10px;"><strong>Tones 1-3 out of 4 completed! (75%)</strong></p>
+                <p style="text-align: center; color: #667eea; margin-top: 10px;"><strong>One more tone to go! 🎉</strong></p>
+            </div>
+
+            <div class="navigation">
+                <a href="DAY-03-Tone-2-Deep-Dive.html" class="nav-button">← Previous: Day 3</a>
+                <a href="DAY-05-Tone-4-Deep-Dive.html" class="nav-button">Next: Day 5 →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

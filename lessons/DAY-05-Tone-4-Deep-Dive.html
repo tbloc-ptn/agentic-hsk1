@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5: Tone 4 (Falling) Deep Dive</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; line-height: 1.6; min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header .day-badge { display: inline-block; background: rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; font-size: 1.1em; margin-bottom: 10px; }
+        .content { padding: 40px 30px; }
+        .section { margin-bottom: 40px; }
+        h2 { color: #667eea; font-size: 1.8em; margin-bottom: 20px; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        h3 { color: #764ba2; font-size: 1.3em; margin: 20px 0 15px 0; }
+        p { margin-bottom: 15px; color: #555; }
+        .box { background: #f8f9ff; border-left: 4px solid #667eea; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .box.highlight { background: #fff3cd; border-left-color: #ffc107; }
+        .box.success { background: #e8f5e9; border-left-color: #4caf50; }
+        .chinese-large { font-size: 2em; font-weight: bold; color: #667eea; text-align: center; padding: 20px; background: #f8f9ff; border-radius: 5px; margin: 15px 0; font-family: 'Microsoft YaHei', 'Heiti SC', sans-serif; }
+        .pinyin { color: #764ba2; font-style: italic; }
+        .pronunciation { color: #28a745; font-weight: bold; }
+        .learning-objectives { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 5px; margin-bottom: 30px; }
+        .learning-objectives h3 { color: white; margin-top: 0; }
+        .learning-objectives ul { margin-left: 20px; }
+        .learning-objectives li { margin: 10px 0; }
+        .practice { background: #f0fff4; border: 2px solid #28a745; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .practice h3 { color: #28a745; margin-top: 0; }
+        .homework { background: #fff3cd; border: 2px solid #ffc107; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .homework h3 { color: #ff6b00; margin-top: 0; }
+        .navigation { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; }
+        .nav-button { background: #667eea; color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; cursor: pointer; transition: background 0.3s; }
+        .nav-button:hover { background: #764ba2; }
+        .emoji { margin-right: 8px; }
+        ul, ol { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #667eea; color: white; padding: 12px; text-align: left; font-weight: bold; }
+        td { padding: 12px; border-bottom: 1px solid #ddd; }
+        tr:hover { background: #f8f9ff; }
+        .progress-bar { background: #ddd; border-radius: 10px; height: 8px; margin: 15px 0; overflow: hidden; }
+        .progress-fill { background: #667eea; height: 100%; }
+        .celebration { text-align: center; font-size: 1.5em; padding: 20px; background: #fff9e6; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-badge">📅 Day 5 of 30</div>
+            <h1>Tone 4: Falling</h1>
+            <p>Master the fourth tone - natural, like giving a command</p>
+        </div>
+
+        <div class="content">
+            <div class="learning-objectives">
+                <h3>✨ Today's Objectives</h3>
+                <ul>
+                    <li>Master Tone 4 pronunciation (high → falling down quickly)</li>
+                    <li>Recognize Tone 4 by sound (it's quite distinctive)</li>
+                    <li>Compare all 4 tones and consolidate learning</li>
+                    <li>Complete your first week of tone mastery! 🎉</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Tone 4: Falling (`)</h2>
+
+                <div class="box highlight">
+                    <strong>Key Characteristics:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Pitch: HIGH, falls DOWN quickly</li>
+                        <li>Visual: ╲ (falling line)</li>
+                        <li>Symbol: <span class="pinyin">à è ì ò ù</span></li>
+                        <li>Feeling: Like giving a strong command or emphasis</li>
+                        <li>Tone Mark: Grave accent (`) over the vowel</li>
+                    </ul>
+                </div>
+
+                <h3>Understanding Tone 4</h3>
+                <p>Tone 4 is actually quite easy because:</p>
+                <div class="box success">
+                    <ul>
+                        <li>It's <strong>very distinct</strong> from the other tones</li>
+                        <li>It feels <strong>natural</strong> in English (like giving a command)</li>
+                        <li>Most English speakers naturally use this pitch contour</li>
+                        <li>It's the easiest tone to recognize by ear</li>
+                    </ul>
+                </div>
+
+                <h3>How to Produce Tone 4</h3>
+                <div class="box">
+                    <ol>
+                        <li><strong>Start HIGH:</strong> Begin at a naturally high pitch</li>
+                        <li><strong>Fall FAST:</strong> Quickly drop down in pitch</li>
+                        <li><strong>End LOW:</strong> Finish at a low note</li>
+                        <li><strong>Think "command":</strong> Like saying "Stop!" in English</li>
+                        <li><strong>Practice repeatedly:</strong> This one should feel natural quickly!</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>All 4 Tones Together!</h2>
+                <p>Now that you've learned all 4 tones, here's the complete picture:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tone</th>
+                            <th>Name</th>
+                            <th>Pitch Pattern</th>
+                            <th>Mark</th>
+                            <th>Example</th>
+                            <th>Feeling</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>High Flat</td>
+                            <td>───  (stays high)</td>
+                            <td><span class="pinyin">ā</span></td>
+                            <td><span class="pinyin">mā</span> (mother)</td>
+                            <td>Siren sound</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>Rising</td>
+                            <td>╱ (goes up)</td>
+                            <td><span class="pinyin">á</span></td>
+                            <td><span class="pinyin">má</span> (hemp)</td>
+                            <td>Asking question</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Low Dipping</td>
+                            <td>∨ (dips down)</td>
+                            <td><span class="pinyin">ǎ</span></td>
+                            <td><span class="pinyin">mǎ</span> (horse)</td>
+                            <td>Expressing doubt</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>Falling</td>
+                            <td>╲ (falls down)</td>
+                            <td><span class="pinyin">à</span></td>
+                            <td><span class="pinyin">mà</span> (scold)</td>
+                            <td>Giving command</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="celebration">
+                    🎉 <strong>You now know all 4 tones!</strong> 🎉
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Tone 4 Common Words</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Character</th>
+                            <th>Pinyin</th>
+                            <th>English</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">骂</td>
+                            <td><span class="pinyin">mà</span></td>
+                            <td>To scold</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">四</td>
+                            <td><span class="pinyin">sì</span></td>
+                            <td>Four</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">去</td>
+                            <td><span class="pinyin">qù</span></td>
+                            <td>Go</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">是</td>
+                            <td><span class="pinyin">shì</span></td>
+                            <td>To be</td>
+                        </tr>
+                        <tr>
+                            <td class="chinese-large" style="margin: 0; padding: 8px; font-size: 1.4em;">十</td>
+                            <td><span class="pinyin">shí</span></td>
+                            <td>Ten</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Practice Exercises</h2>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎯</span>Exercise 1: Tone 4 Recognition</h3>
+                    <p><strong>Which sounds are Tone 4? (Look for the falling pattern)</strong></p>
+                    <ul>
+                        <li>Sound A: High, falls quickly → <strong>✓ Tone 4</strong></li>
+                        <li>Sound B: Stays high → ✗ Tone 1</li>
+                        <li>Sound C: High, falls quickly → <strong>✓ Tone 4</strong></li>
+                        <li>Sound D: Dips low → ✗ Tone 3</li>
+                        <li>Sound E: High, falls quickly → <strong>✓ Tone 4</strong></li>
+                    </ul>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎤</span>Exercise 2: All Tones Together</h3>
+                    <p><strong>Say the "MA" family (all 4 tones) in order:</strong></p>
+                    <ol>
+                        <li><span class="pinyin">mā</span> - High, flat (Tone 1)</li>
+                        <li><span class="pinyin">má</span> - Rising (Tone 2)</li>
+                        <li><span class="pinyin">mǎ</span> - Dipping (Tone 3)</li>
+                        <li><span class="pinyin">mà</span> - Falling (Tone 4)</li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>Do this 10 times!</strong> You should hear 4 completely different sounds.</p>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🔄</span>Exercise 3: Random Tone Identification</h3>
+                    <p><strong>Your brain can now identify tones! Try this:</strong></p>
+                    <ol>
+                        <li>Imagine hearing a random tone (1, 2, 3, or 4)</li>
+                        <li>Guess which tone it is before listening</li>
+                        <li>Listen to confirm</li>
+                        <li>Repeat 20 times</li>
+                    </ol>
+                    <p style="margin-top: 15px;"><em>This trains your ear to distinguish tones unconsciously!</em></p>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">📝</span>Exercise 4: Week 1 Consolidation</h3>
+                    <p><strong>Record yourself saying:</strong></p>
+                    <ul>
+                        <li>The "MA" family (mā má mǎ mà) - 3 times</li>
+                        <li>The "TA" family (tā tá tǎ tà) - 3 times</li>
+                        <li>The "NA" family (nā ná nǎ nà) - 3 times</li>
+                        <li>All 20 syllables from Lesson 1 (一遍 = one time)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Listen back:</strong> Can you hear the difference in all 4 tones?</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="homework">
+                    <h3><span class="emoji">📝</span>Day 5 Homework - WEEK 1 FINALE!</h3>
+                    <ul>
+                        <li>✅ Listen: Mandarin.com Tone 4 exercises (10 min)</li>
+                        <li>✅ Practice: Say Tone 4 words 30 times (5 min)</li>
+                        <li>✅ Consolidation: Say all 4 tones 20 times (10 min)</li>
+                        <li>✅ Record: Complete Week 1 consolidation (5 min)</li>
+                        <li>✅ Anki: Review all 4 days' cards + finalize Week 1 deck (15 min)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Total Time:</strong> 45 minutes</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Week 1 Milestone Achievement! 🏆</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+                <p style="text-align: center; margin-top: 10px;"><strong>All 4 Tones Completed! (100%)</strong></p>
+
+                <div class="box success">
+                    <h3 style="color: #4caf50; margin-top: 0;">✨ What You've Accomplished This Week:</h3>
+                    <ul style="font-size: 1.1em;">
+                        <li>✅ Understand the pinyin system</li>
+                        <li>✅ Master all 4 tones (High, Rising, Dipping, Falling)</li>
+                        <li>✅ Recognize tones by sound</li>
+                        <li>✅ Produce tones with correct pronunciation</li>
+                        <li>✅ Learn 20+ common tone-marked syllables</li>
+                        <li>✅ Build a solid foundation for all future learning</li>
+                    </ul>
+                </div>
+
+                <div class="celebration">
+                    <p style="font-size: 1.8em; margin: 0;">🎊 YOU JUST COMPLETED WEEK 1! 🎊</p>
+                    <p style="margin-top: 10px;">This is the hardest week. Everything from here gets easier!</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>What's Next?</h2>
+                <div class="box">
+                    <strong>Week 2 (Days 8-14):</strong> Character Structure & Radicals
+                    <ul style="margin-top: 10px;">
+                        <li>Learn 5 core radicals (人, 木, 水, 火, 心)</li>
+                        <li>Recognize 20+ characters</li>
+                        <li>Understand how radicals hint at meaning</li>
+                    </ul>
+                </div>
+                <div class="box" style="margin-top: 15px;">
+                    <strong>Your Progress Overall:</strong>
+                    <ul>
+                        <li>Day 1-7: Pinyin & Tones ✅ <strong>COMPLETE!</strong></li>
+                        <li>Day 8-14: Characters & Radicals → Coming next</li>
+                        <li>Day 15-21: Greetings & Numbers → Week 3</li>
+                        <li>Day 22-30: Verbs & Family → Week 4</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <a href="DAY-04-Tone-3-Deep-Dive.html" class="nav-button">← Previous: Day 4</a>
+                <span style="color: #667eea; font-weight: bold;">✅ Week 1 Complete!</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

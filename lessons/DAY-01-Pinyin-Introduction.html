@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: Pinyin & The Four Tones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .day-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 20px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .box.highlight {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+
+        .box.important {
+            background: #ffe0e0;
+            border-left-color: #dc3545;
+        }
+
+        .chinese-large {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Microsoft YaHei', 'Heiti SC', sans-serif;
+        }
+
+        .pinyin {
+            color: #764ba2;
+            font-style: italic;
+        }
+
+        .pronunciation {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #667eea;
+        }
+
+        .example-box .example-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        .audio-section {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border: 2px solid #2196F3;
+        }
+
+        .audio-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .learning-objectives {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .learning-objectives h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 10px 0;
+        }
+
+        .practice {
+            background: #f0fff4;
+            border: 2px solid #28a745;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .practice h3 {
+            color: #28a745;
+            margin-top: 0;
+        }
+
+        .homework {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .homework h3 {
+            color: #ff6b00;
+            margin-top: 0;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+
+        .nav-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #764ba2;
+        }
+
+        .nav-button.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .emoji {
+            margin-right: 8px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tone-example {
+            display: inline-block;
+            background: white;
+            border: 1px solid #667eea;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 3px;
+            font-family: 'Microsoft YaHei', serif;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-badge">📅 Day 1 of 30</div>
+            <h1>Pinyin & The Four Tones</h1>
+            <p>Your first step to speaking Mandarin Chinese</p>
+        </div>
+
+        <div class="content">
+            <!-- Learning Objectives -->
+            <div class="learning-objectives">
+                <h3>✨ Today's Objectives</h3>
+                <ul>
+                    <li>Understand what pinyin is and why it's important</li>
+                    <li>Learn all 4 tones in Mandarin Chinese</li>
+                    <li>Recognize tone marks in written pinyin</li>
+                    <li>Practice basic tone pronunciation</li>
+                </ul>
+            </div>
+
+            <!-- What is Pinyin -->
+            <div class="section">
+                <h2>What is Pinyin?</h2>
+
+                <p><strong>Pinyin</strong> (拼音) literally means "spell sound" - it's the system of romanizing (writing in Latin letters) Mandarin Chinese sounds.</p>
+
+                <div class="box highlight">
+                    <strong>Think of it this way:</strong> Pinyin is like the "pronunciation guide" for Chinese characters. Every Chinese character has a pinyin spelling that tells you how to say it.
+                </div>
+
+                <h3>Why Learn Pinyin First?</h3>
+                <ol>
+                    <li><strong>Pronunciation Guide:</strong> Shows you exactly how to say Chinese characters</li>
+                    <li><strong>Foundation:</strong> Master tones early → easier character learning later</li>
+                    <li><strong>International Standard:</strong> Used worldwide in Chinese learning</li>
+                    <li><strong>Technology:</strong> Used in all Chinese input methods (phones, computers)</li>
+                </ol>
+
+                <h3>Key Concept</h3>
+                <div class="box">
+                    Each Chinese character has <strong>ONE sound = ONE syllable</strong> (usually)
+                    <div style="margin-top: 15px; text-align: center;">
+                        <div class="chinese-large">妈</div>
+                        <p><span class="pinyin">mā</span> = one syllable = one character</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Four Tones -->
+            <div class="section">
+                <h2>The Four Tones of Mandarin</h2>
+
+                <p>Mandarin has <strong>4 tones</strong> (plus 1 neutral tone). The "tone" is the pitch or melody of how you say a syllable.</p>
+
+                <div class="box important">
+                    <strong>⚠️ Critical Point:</strong> Different tones = different meanings! This is why tones are so important.
+                </div>
+
+                <!-- Tone 1 -->
+                <div class="example-box">
+                    <div class="example-title">Tone 1: High Flat (¯)</div>
+                    <div style="margin-top: 10px;">
+                        <p><strong>Symbol:</strong> <span class="tone-example">ā</span> <span class="tone-example">ē</span> <span class="tone-example">ī</span> <span class="tone-example">ō</span> <span class="tone-example">ū</span></p>
+                        <p><strong>Visual:</strong> ─── (straight line)</p>
+                        <p><strong>Pitch:</strong> High and stays high</p>
+                        <p><strong>Pronunciation:</strong> <span class="pronunciation">"mah" (steady, like a siren)</span></p>
+                    </div>
+                    <div class="chinese-large">妈</div>
+                    <p style="text-align: center;"><span class="pinyin">mā</span> = Mother</p>
+                </div>
+
+                <!-- Tone 2 -->
+                <div class="example-box">
+                    <div class="example-title">Tone 2: Rising (´)</div>
+                    <div style="margin-top: 10px;">
+                        <p><strong>Symbol:</strong> <span class="tone-example">á</span> <span class="tone-example">é</span> <span class="tone-example">í</span> <span class="tone-example">ó</span> <span class="tone-example">ú</span></p>
+                        <p><strong>Visual:</strong> ╱ (going up)</p>
+                        <p><strong>Pitch:</strong> Starts middle, goes UP</p>
+                        <p><strong>Pronunciation:</strong> <span class="pronunciation">"mah?" (like asking a question in English)</span></p>
+                    </div>
+                    <div class="chinese-large">麻</div>
+                    <p style="text-align: center;"><span class="pinyin">má</span> = Hemp</p>
+                </div>
+
+                <!-- Tone 3 -->
+                <div class="example-box">
+                    <div class="example-title">Tone 3: Low Dipping (ˇ)</div>
+                    <div style="margin-top: 10px;">
+                        <p><strong>Symbol:</strong> <span class="tone-example">ǎ</span> <span class="tone-example">ě</span> <span class="tone-example">ǐ</span> <span class="tone-example">ǒ</span> <span class="tone-example">ǔ</span></p>
+                        <p><strong>Visual:</strong> ∨ (dipping down)</p>
+                        <p><strong>Pitch:</strong> Dips LOW then rises slightly</p>
+                        <p><strong>Pronunciation:</strong> <span class="pronunciation">"mah" (with a dip, like expressing doubt)</span></p>
+                    </div>
+                    <div class="chinese-large">马</div>
+                    <p style="text-align: center;"><span class="pinyin">mǎ</span> = Horse</p>
+                </div>
+
+                <!-- Tone 4 -->
+                <div class="example-box">
+                    <div class="example-title">Tone 4: Falling (`)</div>
+                    <div style="margin-top: 10px;">
+                        <p><strong>Symbol:</strong> <span class="tone-example">à</span> <span class="tone-example">è</span> <span class="tone-example">ì</span> <span class="tone-example">ò</span> <span class="tone-example">ù</span></p>
+                        <p><strong>Visual:</strong> ╲ (falling down)</p>
+                        <p><strong>Pitch:</strong> High, falls DOWN quickly</p>
+                        <p><strong>Pronunciation:</strong> <span class="pronunciation">"mah!" (like giving a command)</span></p>
+                    </div>
+                    <div class="chinese-large">骂</div>
+                    <p style="text-align: center;"><span class="pinyin">mà</span> = To scold</p>
+                </div>
+            </div>
+
+            <!-- The Famous MA Example -->
+            <div class="section">
+                <h2>The Famous "MA" Example</h2>
+                <p>This is the most important example in all of Chinese learning:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tone</th>
+                            <th>Pinyin</th>
+                            <th>Character</th>
+                            <th>Meaning</th>
+                            <th>Feel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tone 1</strong></td>
+                            <td class="pinyin">mā</td>
+                            <td class="chinese-large" style="margin: 0; padding: 10px; font-size: 1.3em;">妈</td>
+                            <td>Mother</td>
+                            <td>High siren sound</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tone 2</strong></td>
+                            <td class="pinyin">má</td>
+                            <td class="chinese-large" style="margin: 0; padding: 10px; font-size: 1.3em;">麻</td>
+                            <td>Hemp/Numb</td>
+                            <td>Asking a question</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tone 3</strong></td>
+                            <td class="pinyin">mǎ</td>
+                            <td class="chinese-large" style="margin: 0; padding: 10px; font-size: 1.3em;">马</td>
+                            <td>Horse</td>
+                            <td>Expressing doubt</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tone 4</strong></td>
+                            <td class="pinyin">mà</td>
+                            <td class="chinese-large" style="margin: 0; padding: 10px; font-size: 1.3em;">骂</td>
+                            <td>To scold</td>
+                            <td>Giving a command</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="box important">
+                    <strong>This is why tones matter!</strong> The same sound "ma" with 4 different tones = 4 completely different meanings!
+                </div>
+            </div>
+
+            <!-- Practice Section -->
+            <div class="section">
+                <h2>Practice Section</h2>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎯</span>Exercise 1: Identify Tones</h3>
+                    <p><strong>Instructions:</strong> Listen to each syllable and identify which tone it is (1, 2, 3, or 4)</p>
+                    <p style="margin-top: 15px;"><em>Note: In a full HTML version with audio, these would be playable audio files. For now, imagine hearing these:</em></p>
+                    <ul>
+                        <li>Sound 1: High, steady pitch → <strong>Tone 1</strong></li>
+                        <li>Sound 2: Starts middle, goes up → <strong>Tone 2</strong></li>
+                        <li>Sound 3: Dips low → <strong>Tone 3</strong></li>
+                        <li>Sound 4: High, falls quickly → <strong>Tone 4</strong></li>
+                    </ul>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">✏️</span>Exercise 2: Write Pinyin</h3>
+                    <p><strong>Add tone marks to these syllables:</strong></p>
+                    <ol>
+                        <li>ma (tone 1) → mā ✓</li>
+                        <li>ma (tone 2) → má ✓</li>
+                        <li>ma (tone 3) → mǎ ✓</li>
+                        <li>ma (tone 4) → mà ✓</li>
+                    </ol>
+                </div>
+
+                <div class="practice">
+                    <h3><span class="emoji">🎤</span>Exercise 3: Say It Out Loud!</h3>
+                    <p><strong>Repeat 5 times each, exaggerating the tone:</strong></p>
+                    <ul>
+                        <li><strong>Tone 1 (High):</strong> <span class="pinyin">mā mā mā mā mā</span> (like a constant high note) 🎵</li>
+                        <li><strong>Tone 2 (Rising):</strong> <span class="pinyin">má má má má má</span> (like asking "what?") ❓</li>
+                        <li><strong>Tone 3 (Dipping):</strong> <span class="pinyin">mǎ mǎ mǎ mǎ mǎ</span> (go low then rise) 📊</li>
+                        <li><strong>Tone 4 (Falling):</strong> <span class="pinyin">mà mà mà mà mà</span> (like a command) ⚡</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Important:</strong> Don't be shy! Say it loud and exaggerate the pitch changes. Your mouth teaches your brain!</p>
+                </div>
+            </div>
+
+            <!-- Homework -->
+            <div class="section">
+                <div class="homework">
+                    <h3><span class="emoji">📝</span>Day 1 Homework</h3>
+                    <ul>
+                        <li>✅ Watch: Mandarin.com tone listening exercises (5-10 min)</li>
+                        <li>✅ Practice: Say the 4 tones 10 times each (5 min)</li>
+                        <li>✅ Record: Record yourself saying all 4 tones (2 min)</li>
+                        <li>✅ Create: Start Anki flashcard deck with 10 tone cards (10 min)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Total Time:</strong> 30-35 minutes</p>
+                </div>
+            </div>
+
+            <!-- Key Takeaways -->
+            <div class="section">
+                <h2>Key Takeaways</h2>
+                <div class="box">
+                    <ul>
+                        <li>✅ Pinyin is the romanization system for Mandarin</li>
+                        <li>✅ The 4 tones are: High (1), Rising (2), Dipping (3), Falling (4)</li>
+                        <li>✅ Tone = meaning (mā ≠ má ≠ mǎ ≠ mà)</li>
+                        <li>✅ Tone marks go on vowels following specific rules</li>
+                        <li>✅ Practice = perfect! Consistent daily practice pays off</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navigation">
+                <span style="color: #999;">← Previous</span>
+                <a href="DAY-02-Tone-1-Deep-Dive.html" class="nav-button">Next: Day 2 →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
