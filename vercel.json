@@ -1,5 +1,9 @@
 {
-  "buildCommand": "echo 'Static files - no build needed'",
+  "projectName": "agentic-hsk1",
+  "buildCommand": "node build.js",
   "outputDirectory": "public",
-  "installCommand": "echo 'No dependencies to install'"
+  "installCommand": "echo 'Static site - no dependencies'",
+  "framework": "static",
+  "cleanUrls": true,
+  "trailingSlash": false
 }
